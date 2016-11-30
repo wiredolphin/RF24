@@ -603,6 +603,7 @@ void RF24::printDetails(void)
 int RF24::getDetails(char * buffer, int max_len)
 {
   char output[128];
+  char buff[128];
 #if defined (RF24_RPi)
 
   strncpy(output, "================ SPI Configuration ================\n\
@@ -611,7 +612,7 @@ CE Pin  \t = Custom GPIO%d\n\
 Clock Speed\t = %s\n\
 ", 128);
 
-  char buff[128];
+  
   if (csn_pin < BCM2835_SPI_CS_NONE ){
     snprintf(buff, 128, "CSN Pin  \t = %s", rf24_csn_e_str_P[csn_pin]);
   }else{
